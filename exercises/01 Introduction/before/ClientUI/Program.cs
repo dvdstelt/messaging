@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Messages;
 
 namespace ClientUI
 {
@@ -39,6 +38,7 @@ namespace ClientUI
                 }
 
                 // Stop endpoint
+            }
         }
     }
 }
