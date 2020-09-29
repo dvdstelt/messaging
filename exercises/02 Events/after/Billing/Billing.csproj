@@ -1,11 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <TargetFramework>net461</TargetFramework>
     <OutputType>Exe</OutputType>
-    <LangVersion>7.1</LangVersion>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="NServiceBus" Version="7.*" />
-    <ProjectReference Include="..\Messages\Messages.csproj" />
+    <PackageReference Include="NServiceBus" Version="7.4.3" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Messages\Shared.csproj" />
+  </ItemGroup>
+
 </Project>

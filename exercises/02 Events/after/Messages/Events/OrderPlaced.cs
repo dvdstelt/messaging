@@ -1,5 +1,4 @@
-﻿
-namespace Messages
+﻿namespace Shared.Events
 {
     using System;
     using NServiceBus;

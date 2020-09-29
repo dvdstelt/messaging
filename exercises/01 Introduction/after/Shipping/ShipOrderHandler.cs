@@ -1,10 +1,10 @@
-﻿using System.Threading.Tasks;
-using Messages;
-using NServiceBus;
-using NServiceBus.Logging;
-
-namespace Shipping
+﻿namespace Shipping
 {
+    using System.Threading.Tasks;
+    using NServiceBus;
+    using NServiceBus.Logging;
+    using Shared.Commands;
+
     public class ShipOrderHandler : IHandleMessages<ShipOrder>
     {
         static ILog log = LogManager.GetLogger<ShipOrderHandler>();

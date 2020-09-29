@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using Messages;
 using NServiceBus;
 using NServiceBus.Logging;
 
@@ -8,6 +7,7 @@ using NServiceBus.Logging;
 namespace Sales
 {
     using System;
+    using Shared.Commands;
 
     public class PlaceOrderHandler : IHandleMessages<PlaceOrder>
     {

@@ -1,8 +1,8 @@
-﻿using System;
-using System.Threading.Tasks;
-
-namespace Sales
+﻿namespace Sales
 {
+    using System;
+    using System.Threading.Tasks;
+
     class Program
     {
         static async Task Main()

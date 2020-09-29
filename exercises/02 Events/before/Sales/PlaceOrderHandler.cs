@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using Messages;
 using NServiceBus;
 using NServiceBus.Logging;
 
@@ -7,10 +6,13 @@ using NServiceBus.Logging;
 
 namespace Sales
 {
-    public class PlaceOrderHandler :
-        IHandleMessages<PlaceOrder>
+    using System;
+    using Shared.Commands;
+
+    public class PlaceOrderHandler : IHandleMessages<PlaceOrder>
     {
         static ILog log = LogManager.GetLogger<PlaceOrderHandler>();
+        static Random random = new Random();
 
         public Task Handle(PlaceOrder message, IMessageHandlerContext context)
         {
@@ -18,7 +20,16 @@ namespace Sales
 
             // This is normally where some business logic would occur
 
-            return Task.CompletedTask;
+            // Uncomment to test throwing a systemic exception
+            //throw new Exception("BOOM");
+
+            // Uncomment to test throwing a transient exception
+            //if (random.Next(0, 5) == 0)
+            //{
+            //    throw new Exception("Oops");
+            //}
+
+            // Publish OrderPlaced
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Messages
+﻿namespace Shared.Commands
 {
     using System;
     using NServiceBus;

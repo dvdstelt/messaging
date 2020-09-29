@@ -1,32 +1,27 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Messages;
 using NServiceBus;
 using NServiceBus.Logging;
 
 namespace ClientUI
 {
+    using Shared.Commands;
+    using Shared.Configuration;
+
     class Program
     {
         static async Task Main()
         {
             Console.Title = "ClientUI";
 
-            var endpointConfiguration = new EndpointConfiguration("ClientUI");
+            var endpointConfiguration = new EndpointConfiguration("ClientUI")
+                .ApplyDefaultConfiguration(r => r.RouteToEndpoint(typeof(PlaceOrder), "Sales"));
 
-            var transport = endpointConfiguration.UseTransport<LearningTransport>();
+            var endpointInstance = await Endpoint.Start(endpointConfiguration).ConfigureAwait(false);
 
-            var routing = transport.Routing();
-            routing.RouteToEndpoint(typeof(PlaceOrder), "Sales");
+            await RunLoop(endpointInstance).ConfigureAwait(false);
 
-            var endpointInstance = await Endpoint.Start(endpointConfiguration)
-                .ConfigureAwait(false);
-
-            await RunLoop(endpointInstance)
-                .ConfigureAwait(false);
-
-            await endpointInstance.Stop()
-                .ConfigureAwait(false);
+            await endpointInstance.Stop().ConfigureAwait(false);
         }
 
         static ILog log = LogManager.GetLogger<Program>();

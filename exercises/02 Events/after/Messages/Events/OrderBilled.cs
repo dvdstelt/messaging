@@ -1,6 +1,7 @@
-﻿namespace Messages
+﻿using System;
+
+namespace Shared.Events
 {
-    using System;
     using NServiceBus;
 
     public class OrderBilled : IEvent

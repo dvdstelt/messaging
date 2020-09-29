@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 
 namespace Shipping
 {
+    using Shared.Configuration;
+
     class Program
     {
         static async Task Main()

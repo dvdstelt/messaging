@@ -12,6 +12,9 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+# NServiceBus
+.learningtransport/
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/

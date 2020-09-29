@@ -1,12 +1,11 @@
-﻿using System.Threading.Tasks;
-using Messages;
-using NServiceBus;
-using NServiceBus.Logging;
-
-namespace Shipping
+﻿namespace Shipping
 {
-    public class OrderPlacedHandler :
-        IHandleMessages<OrderPlaced>
+    using System.Threading.Tasks;
+    using NServiceBus;
+    using NServiceBus.Logging;
+    using Shared.Events;
+
+    public class OrderPlacedHandler : IHandleMessages<OrderPlaced>
     {
         static ILog log = LogManager.GetLogger<OrderPlacedHandler>();
 
